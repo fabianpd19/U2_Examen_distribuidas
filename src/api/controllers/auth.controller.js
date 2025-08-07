@@ -109,8 +109,8 @@ class AuthController {
       });
 
       // ✅ Redirigir correctamente al frontend
-      const clientURL = process.env.CLIENT_URL || "http://localhost:3000";
-      res.redirect(`/client-example.html?token=${token}`);
+      const clientURL = process.env.CLIENT_URL || "http://127.0.0.1:5500";
+      res.redirect(`${clientURL}/client-example.html?token=${token}`);
     } catch (err) {
       console.error("Error en googleCallback:", err);
       res.status(500).json({ success: false, error: "Error en Google login" });
